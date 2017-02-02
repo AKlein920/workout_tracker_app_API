@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :users do
+    resources :workouts
     collection do
       post '/login', to: 'users#login'
     end
