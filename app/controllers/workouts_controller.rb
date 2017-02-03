@@ -45,7 +45,7 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:type, :duration, :time_of_day, :location, :equipment_used, :class, :notes, :calories_burned)
+    params.require(:workout).permit(:title, :duration, :time_of_day, :location, :equipment_used, :class, :notes, :calories_burned, :user_id, :start, :editable, :className, :backgroundColor)
   end
-  
+
 end
