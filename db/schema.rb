@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202050711) do
+ActiveRecord::Schema.define(version: 20170203143406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170202050711) do
   end
 
   create_table "workouts", force: :cascade do |t|
-    t.string  "type"
+    t.string  "title"
     t.string  "duration"
     t.string  "time_of_day"
     t.string  "location"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20170202050711) do
     t.string  "class"
     t.text    "notes"
     t.integer "calories_burned"
+    t.date    "start"
+    t.integer "user_id"
+    t.boolean "editable"
+    t.string  "className"
+    t.string  "backgroundColor"
+    t.index ["user_id"], name: "index_workouts_on_user_id", using: :btree
   end
 
+  add_foreign_key "workouts", "users"
 end
