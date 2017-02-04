@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203185223) do
+ActiveRecord::Schema.define(version: 20170204032220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20170203185223) do
     t.integer "calories_burned"
     t.date    "start"
     t.integer "user_id"
-    t.boolean "editable"
+    t.boolean "editable",        default: true
     t.string  "className"
     t.string  "backgroundColor"
-    t.boolean "stick"
+    t.boolean "stick",           default: true
     t.index ["user_id"], name: "index_workouts_on_user_id", using: :btree
   end
 
